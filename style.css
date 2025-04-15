@@ -1,41 +1,146 @@
+/* style.css */
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 12px;
-    max-width: 960px;
-    margin: auto;
+    background: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
 }
-main { 
-    display: grid;
-    grid-template-columns: 40% 60%;
-    margin-top: 3em;
-}
+
 header {
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    color: #fff;
     text-align: center;
-    margin: auto 2em;
+    padding: 2rem 0;
+    border-radius: 0 0 30px 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    animation: slideDown 1s ease-out;
 }
 
-section {
-    margin: auto 1em 4em 2em;
+header h1 {
+    font-size: 2.5rem;
+    letter-spacing: 1.5px;
+    animation: fadeIn 2s ease forwards;
 }
 
-i {
-    margin-right: .5em;
+header hr {
+    width: 60px;
+    border: 2px solid #fff;
+    margin: 0.5rem auto;
 }
 
-p {
-    margin: .2em auto
+main {
+    display: flex;
+    max-width: 1000px;
+    margin: 2rem auto;
+    gap: 2rem;
+    padding: 0 1rem;
 }
 
-hr {
-    border: none;
-    background-color: lightgray;
-    height: 1px;
+#mainLeft, #mainRight {
+    background: #fff;
+    padding: 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    flex: 1;
+    transform: translateY(20px);
+    opacity: 0;
+    animation: fadeInUp 1s ease forwards;
 }
 
-h1, h2, h3 {
-    font-weight: 100;
-    margin-bottom: 0;
-}
 #mainLeft {
-    border-right: 1px solid lightgray;
+    animation-delay: 0.5s;
+}
+
+#mainRight {
+    animation-delay: 1s;
+}
+
+h2 {
+    color: #6a11cb;
+    border-bottom: 2px solid #2575fc;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+h3 {
+    margin: 0.8rem 0 0.4rem;
+    color: #444;
+}
+
+p, li, a {
+    font-size: 0.95rem;
+    margin-bottom: 0.5rem;
+}
+
+a {
+    text-decoration: none;
+    color: #2575fc;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #6a11cb;
+}
+
+ul {
+    list-style-type: square;
+    margin-left: 1.2rem;
+}
+
+/* Icons styling */
+i {
+    margin-right: 8px;
+    color: #2575fc;
+}
+
+/* Responsive adjustments */
+@media(max-width: 768px) {
+    main {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
